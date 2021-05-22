@@ -28,9 +28,6 @@ class Automata:
             final_str = ''
             if new_node.is_final:
                 final_str = '*'
-            if is_new and self.debug:
-                print('(' + str(current_node.instance_index) + ', ' + str(current_node.name) + ')  --' +
-                      transitions[k] + '--> (' + str(new_node.instance_index) + ', ' + str(new_node.name) + final_str + ')')
             current_node.add_transition(transitions[k], new_node)
             current_node = new_node
             k += 1
@@ -59,3 +56,10 @@ class Automata:
                 current_node = node
             k += 1
 
+    def explore(self, callback: callable):
+        def recursive(node: Node):
+            for t in node.transitions:
+                next_node = node.transitions.get(t)
+                callback(node, t, next_node)
+                recursive(next_node)
+        recursive(self.node)
