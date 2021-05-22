@@ -64,6 +64,40 @@ class Automata:
                 recursive(next_node)
         recursive(self.node)
 
+    def graphviz_export(self, filename: str = None):
+        graph_settings = "digraph finite_state_machine {\n\trankdir=LR;\n\tsize=\"8,5\"\n"
+        edges = []
+        finals = []
+        not_finals = []
+        def cb(n, t, nn):
+            edges.append("\t{} -> {} [label = \"{}\"];\n".format(n.instance_index, nn.instance_index, t))
+            if not n.is_final:
+                if n.instance_index not in not_finals:
+                    not_finals.append(n.instance_index)
+                    edges.append("\t{} [label=\"\"]\n".format(n.instance_index))
+            if nn.is_final:
+                if not str(nn.instance_index) in finals:
+                    finals.append(str(nn.instance_index))
+                    edges.append("\t{} [label=\"{}\"]\n".format(nn.instance_index, nn.name))
+            else:
+                if nn.instance_index not in not_finals:
+                    not_finals.append(nn.instance_index)
+                    edges.append("\t{} [label=\"\"]\n".format(nn.instance_index))
+            
+        self.explore(cb)
+        graph_settings += "\tnode [shape = doublecircle]; {};\n".format(" ".join(finals))
+        graph_settings += "\tnode [shape = circle];\n"
+        
+        graph = graph_settings +  "".join(edges) + "}"
+
+        if filename is None:
+            print("".join(graph)) 
+        else:
+            writer = open(filename, 'w')
+            writer.write("".join(graph))
+            writer.write("\n")
+            writer.close()
+
 def automata_factory(filename: str = None, debug: bool = False) -> Automata:
     automata = Automata(debug=debug)
     automata_file = open(filename, 'r')
