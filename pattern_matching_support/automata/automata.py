@@ -4,7 +4,7 @@ class Automata:
     node: Node
     debug: bool
 
-    def __init__(self, debug: bool = False, add: bool = True):
+    def __init__(self, debug: bool = False):
         self.node = Node("ε")
         self.debug = debug
 
@@ -63,3 +63,17 @@ class Automata:
                 callback(node, t, next_node)
                 recursive(next_node)
         recursive(self.node)
+
+def automata_factory(filename: str = None, debug: bool = False) -> Automata:
+    automata = Automata(debug=debug)
+    automata_file = open(filename, 'r')
+    while True:
+        line = automata_file.readline()
+        if not line:
+            break
+        details = line.strip().split(':')
+        node_name = details[0]
+        words = details[1].strip().split()
+        automata.add_transitions(node_name, words)
+    automata_file.close()
+    return automata
