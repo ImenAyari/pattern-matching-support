@@ -66,7 +66,7 @@ Automata:
 
 P1: A B /C/
 
-/C/ is an already implemented regex which can ignore *something* between the text lines and return to us the final pattern needed which is ``` P1 -- > A B* C*```.
+/C/ is an already implemented regex which can ignore *something* between the text lines and return to us the final pattern needed which is ``` P1 -- > A B *C*```.
 
 ### Automata
 Our Automata does the work of **matching**, **exploring** and **Exporting graph of final automata**
@@ -87,7 +87,7 @@ Command:
 ```python export_example.py | dot -Tpng > graph.png```
 See output based on ```resources/sample.automata``` file and ```input_01``` input file.
 
-![Automata png file](graph.png" "Automata png file.")
+![Automata png file](graph.png " Automata png file.")
 
 # Tests: 
 We have stuffed our implementation of this Package with unitary tests using ```Unittest```.
