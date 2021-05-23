@@ -6,13 +6,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pattern-matching-support",
-    version="0.0.3",
+    version="0.0.4",
     author="Imen Ayari",
     author_email="ayari.imen@hotmail.com",
     description="POC for pattern matching",
     long_description=long_description,
     url="git@github.com/ImenAyari/pattern-matching-support.git",
-    packages=["pattern_matching_support"],
+    packages= setuptools.find_packages(),
     install_requires=[],
 
     classifiers=[
