@@ -79,7 +79,7 @@ Command:
 See output based on ```resources/sample.automata``` file and ```input01``` input file. 
 
 
-![Automata png file](/home/imen/pattern-matching-support/miaou.png" "Automata png file.")
+![Automata png file](graph.png" "Automata png file.")
 
 # Tests: 
 We have stuffed our implementation of this Package with unitary tests using ```Unittest```.
