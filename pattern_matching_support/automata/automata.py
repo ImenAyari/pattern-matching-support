@@ -105,6 +105,10 @@ def automata_factory(filename: str = None, debug: bool = False) -> Automata:
         line = automata_file.readline()
         if not line:
             break
+        if len(line.strip()) == 0:
+            continue
+        if line[0] == "#":
+            continue
         details = line.strip().split(':')
         node_name = details[0]
         words = details[1].strip().split()
