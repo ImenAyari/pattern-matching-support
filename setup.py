@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pattern-matching-support",
-    version="0.0.5",
+    version="0.1.0",
     author="Imen Ayari",
     author_email="ayari.imen@hotmail.com",
     description="POC for pattern matching",
