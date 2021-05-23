@@ -15,3 +15,8 @@ if main.py print the export:
 if main.py defines filename (graph.dot) to export:
 ```python export_example.py && dot -Tpng graph.dot > graph.png```
 
+required: ```pip install setuptools```
+
+
+launch command:  ```python setup.py check```
+launch command:  ```python setup.py sdist```

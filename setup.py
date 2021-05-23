@@ -11,7 +11,7 @@ setuptools.setup(
     author_email="ayari.imen@hotmail.com",
     description="POC for pattern matching",
     long_description=long_description,
-    url="https://github.com/ImenAyari/projet_pip_test.git",
+    url="https://github.com/ImenAyari/pattern-matching-support.git",
     packages=["pattern_matching_support"],
     install_requires=[],
 
