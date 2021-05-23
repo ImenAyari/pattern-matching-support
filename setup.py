@@ -12,7 +12,7 @@ setuptools.setup(
     description="POC for pattern matching",
     long_description=long_description,
     url="https://github.com/ImenAyari/projet_pip_test.git",
-    packages=['pattern_mathcing support'],
+    packages=["pattern_matching_support"],
     install_requires=[],
 
     classifiers=[
@@ -22,5 +22,5 @@ setuptools.setup(
         'Operating System :: POSIX :: Linux',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.9',
-    ],    
+    ],
 )
